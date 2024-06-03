@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricochet Rumble</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Permanent+Marker&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,400;1,300&family=Russo+One&family=Salsa&family=Satisfy&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="hackermodepp.css">
+    <link rel="stylesheet" href="hackermodeppMobile.css">
+    <link rel="stylesheet" href="../assets/bg.css">
+</head>
+<body>
+    <div class="timerbox">
+        <h1 class="turn">Turn : </h1>
+        <div class="colourTurn">BLUE</div>
+        <div class="timerbg"><div class="timer_text"></div></div>
+    <div class="PR">
+    <button class="pause">Pause</button>
+    <button class="redo">Redo</button>
+    <button class="undo">Undo</button>
+    </div>
+</div>
+    <div class="container">
+        <div class="gameboard">
+        </div>
+    </div>
+    <div class="ricbox">
+        <div class="gameHistory">
+        <h1>Game History</h1>
+        </div>
+    <div class="ricButtons">
+        <h1>Hacker Mode++</h1>
+        <div class="turnRic">
+            <button class="ricRotateBlue">Turn Ricochet</button>
+            <button class="ricRotateRed">Turn Ricochet</button>
+      </div>
+      <div class="turnSemiRicRed">
+        <p>Turn Semi-Ricochet : </p>
+        <button class="semiLeftRed">Left</button><button class="semiRightRed">Right</button>
+      </div>
+      <div class="turnSemiRicBlue">
+        <p>Turn Semi-Ricochet : </p>
+        <button class="semiLeftBlue">Left</button><button class="semiRightBlue">Right</button>
+      </div>
+      <ul>Undo & Redo can only be used once per move</ul>
+    </div>
+    </div>
+    <div class="bg"></div>
+    <div class="blacken1">
+        <div class="winBox">
+            <p></p>
+            <span><button class="replay">Play Again</button>
+            <button class="replayFeature">Replay Moves</button></span>
+        </div>
+    </div>
+    <div class="blacken2">
+        <div class="resumebox">
+            <div class="text"><h1>Game Paused</h1></div>
+            <div class="buttons">
+            <button class="resume">Resume</button>
+            <button class="reset">Reset</button>
+        </div>
+        </div>
+    </div>
+    <div class="blacken3">
+        <div class="modeBox">
+            <h1>Select a mode</h1>
+          <div class="mode">
+            <button class="singlePlayer">Single-Player Mode (against a bot)</button>
+            <button class="twoPlayer">Two-Player Mode</button>
+          </div>
+        </div>
+    </div>
+    <div class="blacken4">
+        <div class="box"><p>YOU ARE BLUE</p></div>
+    </div>
+<div class="star-field">
+<div class="layer"></div>
+<div class="layer"></div>
+<div class="layer"></div>
+    <script src="hackermodepp.js"></script>
+</body>
+</html>

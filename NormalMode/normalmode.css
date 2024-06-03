@@ -1,0 +1,387 @@
+body {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(11, 11, 11);
+    border-radius:10px;
+    box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+}
+.winBox{
+    background-color: rgba(8, 2, 44, 0.781);
+    height:150px;
+    width:300px;
+    border-radius: 10px;
+}
+.winBox p{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 35px;
+    margin-top: 5px;
+    margin-bottom:18px;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 850;
+    font-style: normal;
+}
+span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+.replay{
+    height:60px;
+    width:100px;
+    font-size: 18.5px;
+    color:black;
+    border-radius: 8px;
+    background-color: rgb(183, 156, 204);
+    border:3px rgb(3, 97, 49) solid;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 850;
+    font-style: normal;
+}
+.reply:hover{
+    background-color: rgb(20, 220, 154);
+    box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+}
+.gameboard {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(8, 62px);
+    grid-template-rows: repeat(8, 62px);
+    row-gap: 2px;
+    column-gap: 2px; 
+    background: transparent;
+    height: 530px;
+    width: 530px;
+    transform: translateY(10px);
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    height: 62px;
+    width: 62px;
+}
+
+.cannonBlue, .cannonRed, .tankBlue, .tankRed, .titanBlue, .titanRed,
+.semiricBlue,.semiricRed,.tankBlue2,.tankRed2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-family:'papyrus';
+    color: white;
+    text-align: center;
+    position: fixed;
+}
+
+.cannonBlue {
+    background-color: blue;
+    height: 58px;
+    width: 58px;
+    font-weight: 800;
+    border-radius: 4px;
+}
+
+.cannonRed {
+    background-color: red;
+    height: 58px;
+    width: 58px;
+    font-weight: 800;
+    border-radius: 4px;
+}
+
+.tankBlue,.tankBlue2 {
+    background-color: blue;
+    height: 58px;
+    width: 58px;
+    font-weight: 800;
+    border-radius: 4px;
+}
+
+.tankRed,.tankRed2 {
+    background-color: red;
+    height: 58px;
+    width: 58px;
+    font-weight: 800;
+    border-radius: 4px;
+}
+
+.titanBlue {
+    background-color: blue;
+    height: 58px;
+    width: 58px;
+    font-weight: 800;
+    border-radius: 4px;
+}
+
+.titanRed {
+    background-color: red;
+    height: 58px;
+    width: 58px;
+    font-weight: 800;
+    border-radius: 4px;
+}
+.semiricBlue{
+    width: 0;
+    height: 0;
+    border-top: 55px solid blue; 
+    border-right: 55px solid transparent; 
+}
+.semiricRed{
+    width: 0;
+    height: 0;
+    border-top: 55px solid red; 
+    border-right: 55px solid transparent; 
+}
+.ricBlue{
+    width: 70px;
+    height: 4px;
+    border-radius: 10px;
+    background-color: blue;
+    /* transform: rotate(-45deg); */
+    position:fixed;
+}
+.ricRed{
+    width: 70px;
+    height: 4px;
+    border-radius: 10px;
+    background-color: red;
+    /* transform: rotate(-45deg); */
+    position:fixed;
+}
+.bulletRed{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: red;
+}
+ .bulletBlue{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: blue;
+} 
+.timerbox{
+    height:175px;
+    width:215px;
+    scale:1.5;
+    border-radius:10px;
+    box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+    background-color: #097167e5;
+}
+.ricbox{
+    height:175px;
+    width:215px;
+    scale:1.5;
+    border-radius:10px;
+    box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+    background-color: #097167e5;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.ricbox span{
+    text-align: center;
+    font-size: 35px;
+    font-family: "VT323", monospace;
+    font-weight: 300;
+    font-style: normal;
+    margin-top: 5px;
+    color:rgb(206, 240, 13);
+}
+
+.turn,.colourTurn{
+    text-align: center;
+    font-family: "Salsa", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+.turn{
+    margin-top:4px;
+    margin-bottom: 0px;
+    font-size: 16px;
+}
+.colourTurn{
+    margin-bottom:2px;
+    font-size: 35px;
+}
+.PR{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.timerbox .pause{
+    height:45px;
+    width:85px;
+    background-color: rgb(183, 156, 204);
+    border:2px rgb(10, 172, 89) solid;
+    margin-top:9px;
+    border-radius: 8px;
+    font-size:20px;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+.pause:hover{
+    background-color: rgb(20, 220, 154);
+    box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+}
+.timerbg{
+    height:45px;
+    width:215px;
+    background-color: rgb(22, 183, 180);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.timer_text{
+    font-family: "VT323", monospace;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+    margin-top:1px;
+    font-size: 35px;
+}
+.blacken2,.blacken1{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #1515158e;
+    position: absolute;
+    visibility: hidden;
+    transition: ease-in 0.4s;
+}
+.resumebox{
+    border-radius: 15px;
+    background-color: rgba(12, 6, 116, 0.928); 
+    /* background-color: #00661fd4; */
+    height:200px;
+    width:300px;
+    border: 3px rgba(1, 1, 39, 0.729) solid;
+}
+.resumebox .resume,.resumebox .reset{
+    background-color: rgb(183, 156, 204);
+    height:50px;
+    width:90px;
+    font-size:16.5px;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 8px;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 850;
+    font-style: normal;
+    border:4px rgb(9, 165, 87) solid;
+    color:black;
+}
+.resumebox .resume:hover,.resumebox .reset:hover{
+    background-color: rgb(20, 220, 154);
+    box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.resumebox h1{
+    text-align: center;
+    margin-top:20px;
+    font-size:40px;
+    font-family: "Salsa", cursive;
+    font-weight: 500;
+    font-style: normal;
+    margin-bottom:17px;
+    color: #dc7c45;
+}
+.ricRotateRed{
+    height:50px;
+    width:100px;
+    font-size: 15px;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    border-radius: 8px;
+    border:2px rgb(201, 40, 25) solid;
+    background-color: rgb(211, 113, 113);
+    transform:translate(-50px,35px);
+    visibility: hidden;
+    color: black;
+}
+.ricRotateBlue{
+    height:50px;
+    width:100px;
+    font-size: 15px;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    border-radius:8px;
+    border:2px rgb(11, 53, 206) solid;
+    background-color: rgb(128, 128, 216);
+    transform: translate(54px,35px);
+    visibility: hidden;
+    color:black;
+}
+.ricRotateRed:hover{
+    background-color: rgb(12, 185, 127);
+    box-shadow: 1px 1px 3px 5px rgba(185, 34, 34, 0.521);
+}
+.ricRotateBlue:hover{
+    background-color: rgb(12, 185, 127);
+    box-shadow: 1px 1px 3px 5px rgba(50, 38, 208, 0.353);
+}
+.turnSemiRicRed,.turnSemiRicBlue{
+    visibility:hidden;
+}
+.turnSemiRicRed{
+    transform: translate(14px,-50px);
+}
+.turnSemiRicBlue{
+    transform: translate(14px,-152px);
+}
+.turnSemiRicRed p,.turnSemiRicBlue p{
+    font-size:18px;
+    font-family: "Russo One", sans-serif;
+    font-style: normal; 
+}
+.turnSemiRicBlue p{
+    color:rgb(21, 21, 113);
+}
+.turnSemiRicRed p{
+    color:rgb(100, 0, 0);
+}
+.semiLeftRed,.semiRightRed,.semiLeftBlue,.semiRightBlue{
+    border-radius: 7px;
+    height:44px;
+    width:80px;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-right: 12px;
+    background-color: rgb(177, 134, 211);
+    border:3px rgb(10, 172, 89) solid;
+    color: black;
+}
+.semiLeftRed:hover,.semiRightRed:hover,.semiLeftBlue:hover,.semiRightBlue:hover{
+    background-color: rgb(20, 220, 154);
+    box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+}
+

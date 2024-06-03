@@ -1,0 +1,448 @@
+@media (max-width: 450px) and (max-height: 940px){
+    body {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: space-around;
+        height: 100vh;
+        width: 100%;
+        margin: 0;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(11, 11, 11);
+        border-radius:5px;
+        box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+        transform: translate(12px,35px);
+    }
+    .winBox{
+        background-color: rgba(8, 2, 44, 0.781);
+        height:150px;
+        width:300px;
+        border-radius: 10px;
+    }
+    .winBox p{
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        font-size: 35px;
+        margin-top: 5px;
+        margin-bottom:18px;
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 850;
+        font-style: normal;
+    }
+    span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+    }
+    .replay{
+        height:60px;
+        width:100px;
+        font-size: 18.5px;
+        color:black;
+        border-radius: 8px;
+        background-color: rgb(183, 156, 204);
+        border:3px rgb(3, 97, 49) solid;
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 850;
+        font-style: normal;
+    }
+    .reply:hover{
+        background-color: rgb(20, 220, 154);
+        box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+    }
+    .gameboard {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(8, 46px);
+        grid-template-rows: repeat(8, 46px);
+        row-gap: 1px;
+        column-gap: 1px; 
+        background: transparent;
+        height: 386px;
+        width: 386px;
+        transform: translateY(4.5px); 
+    }
+    
+    .cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        height: 46px;
+        width: 46px;
+    }
+    
+    .cannonBlue, .cannonRed, .tankBlue, .tankRed, .titanBlue, .titanRed,
+    .semiricBlue,.semiricRed,.tankBlue2,.tankRed2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        font-family:'papyrus';
+        color: white;
+        text-align: center;
+        position: fixed;
+    }
+    
+    .cannonBlue {
+        background-color: blue;
+        height: 41px;
+        width: 41px;
+        font-weight: 800;
+        border-radius: 4px;
+    }
+    
+    .cannonRed {
+        background-color: red;
+        height: 41px;
+        width: 41px;
+        font-weight: 800;
+        border-radius: 4px;
+    }
+    
+    .tankBlue,.tankBlue2 {
+        background-color: blue;
+        border-right:3px solid rgb(0, 0, 0);
+        height: 41px;
+        width: 38px;
+        font-weight: 800;
+        border-radius: 4px;
+    }
+    
+    .tankRed,.tankRed2 {
+        background-color: red;
+        border-right:3px solid rgb(0, 0, 0);
+        height: 41px;
+        width: 38px;
+        font-weight: 800;
+        border-radius: 4px;
+    }
+    
+    .titanBlue {
+        background-color: blue;
+        height: 41px;
+        width: 41px;
+        font-weight: 800;
+        border-radius: 4px;
+    }
+    
+    .titanRed {
+        background-color: red;
+        height: 41px;
+        width: 41px;
+        font-weight: 800;
+        border-radius: 4px;
+    }
+    .semiricBlue{
+        width: 0;
+        height: 0;
+        border-top: 42.5px solid blue; 
+        border-right: 42.5px solid transparent; 
+    }
+    .semiricRed{
+        width: 0;
+        height: 0;
+        border-top: 42.5px solid red; 
+        border-right: 42.5px solid transparent; 
+    }
+    .ricBlue{
+        width: 56px;
+        height: 3.5px;
+        border-radius: 8px;
+        background-color: blue;
+        /* transform: rotate(-45deg); */
+        position:fixed;
+    }
+    .ricRed{
+        width: 56px;
+        height: 3.5px;
+        border-radius: 8px;
+        background-color: red;
+        /* transform: rotate(-45deg); */
+        position:fixed;
+    }
+    .bulletRed,.bulletBlue{
+        height: 29.7px;
+        width: 29.7px;
+    }
+    .timerbox{
+        height:120px;
+        width:200px;
+        scale:1.5;
+        border-radius:10px;
+        box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+        background-color: #097167e5;
+        transform: translateY(60px);
+    }
+    .ricbox{
+        display: flex;
+        flex-direction:row-reverse;
+        justify-content: space-evenly;
+        align-items: center;
+        height:142px;
+        width:388px;
+        background: transparent;
+        
+    }
+    .ricButtons{
+        height:220px;
+        width:180px;
+        border-radius:6px;
+        box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+        transform: translate(-20px,-39px);
+        background-color: #097167e5;
+    }
+    .ricButtons ul{
+        font-size: 8px;
+        color:#FFD700;
+        transform: translate(-22px,-305px);
+        letter-spacing: 1px;
+        font-family: 'papyrus';
+        font-weight: 600;
+    }
+    .ricButtons h1{
+        text-align: center;
+        font-size: 33px;
+        font-family: "VT323", monospace;
+        font-weight: 300;
+        font-style: normal;
+        margin-top: 5px;
+        color:rgb(206, 240, 13);
+    }
+    .gameHistory {
+        height: 220px;
+        width: 180px;
+        border-radius: 6px;
+        box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+        background-color: #097167e5;
+        transform: translate(-10px,-26px);
+        overflow-y: auto; /* scrollbar if content overflows */
+    }
+    .gameHistory::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+    .gameHistory::-webkit-scrollbar-track {
+        background: #f1f1f1; /*scrollbar track colour*/
+    }
+    .gameHistory::-webkit-scrollbar-thumb:hover {
+        background: #555; /* change scrollbar thumb color on hover */
+    }
+    .gameHistory h1{
+        font-size: 20px;
+        text-align: center;
+        letter-spacing: 0.8px;
+        margin-top: 0px;
+        margin-bottom: 1px;
+        color:rgb(8, 244, 102);
+        font-family: "VT323", monospace;
+        font-weight: 300;
+        font-style: normal;
+    }
+    .moves{
+        font-size: 10px;
+        font-family: "Russo One", sans-serif;
+        font-weight: 400;
+        color: #FFD700;
+        font-style: normal;  
+        letter-spacing: 2px; 
+        text-align:center;
+        margin-top:1px;
+    }
+    .turn,.colourTurn{
+        text-align: center;
+        font-family: "Salsa", cursive;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .turn{
+        margin-top:0px;
+        margin-bottom: 0px;
+        font-size: 16px;
+    }
+    .colourTurn{
+        margin-bottom:1px;
+        font-size: 21px;
+    }
+    .PR{
+        display: flex;
+        justify-content:space-evenly;
+        align-items: center;
+    }
+    .timerbox .pause,.timerbox .undo,.timerbox .redo{
+        height:30px;
+        width:61px;
+        text-align: left;
+        background-color: rgb(183, 156, 204);
+        border:2px rgb(10, 172, 89) solid;
+        margin-top:9px;
+        border-radius: 8px;
+        font-size:13.5px;
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+        color:#000;
+        transform: translateY(-7px);
+    }
+    .pause:hover,.undo:hover,.redo:hover{
+        background-color: rgb(20, 220, 154);
+        box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+    }
+    .timerbg{
+        height:35px;
+        width:200px;
+        background-color: rgb(22, 183, 180);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-2px);
+    }
+    .timer_text{
+        font-family: "VT323", monospace;
+        font-weight: 600;
+        font-style: normal;
+        text-align: center;
+        margin-top:1px;
+        font-size: 30px;
+    }
+    .blacken2,.blacken1{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 940px;
+        width: 450px;
+        background-color: #1515158e;
+        position: absolute;
+        visibility: hidden;
+        transition: ease-in 0.4s;
+    }
+    .resumebox{
+        border-radius: 15px;
+        background-color: rgba(12, 6, 116, 0.928); 
+        /* background-color: #00661fd4; */
+        height:200px;
+        width:300px;
+        border: 3px rgba(1, 1, 39, 0.729) solid;
+    }
+    .resumebox .resume,.resumebox .reset{
+        background-color: rgb(183, 156, 204);
+        height: 55px;
+        width:105px;
+        font-size:18px;
+        text-align: center;
+        border-radius: 8px;
+        margin-top: 8px;
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 850;
+        font-style: normal;
+        border:4px rgb(9, 165, 87) solid;
+        color:black;
+    }
+    .resumebox .resume:hover,.resumebox .reset:hover{
+        background-color: rgb(20, 220, 154);
+        box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .resumebox h1{
+        text-align: center;
+        margin-top:20px;
+        font-size:40px;
+        font-family: "Salsa", cursive;
+        font-weight: 500;
+        font-style: normal;
+        margin-bottom:17px;
+        color: #dc7c45;
+    }
+    .ricRotateRed{
+        height:65px;
+        width:135px;
+        font-size: 18px;
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+        border-radius: 10px;
+        border:2px rgb(201, 40, 25) solid;
+        transform: translate(20px,-40px);
+        background-color: rgb(211, 113, 113);
+        visibility: hidden;
+        color:black;
+    }
+    .ricRotateBlue{
+        height:65px;
+        width:135px;
+        font-size: 18px;
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+        border-radius:8px;
+        border:2px rgb(11, 53, 206) solid;
+        transform: translate(20px,25px);
+        background-color: rgb(128, 128, 216);
+        visibility: hidden;
+        color:black;
+    }
+    .ricRotateRed:hover{
+        background-color: rgb(12, 185, 127);
+        box-shadow: 2px 2px 6px 10px rgba(185, 34, 34, 0.521);
+    }
+    .ricRotateBlue:hover{
+        background-color: rgb(12, 185, 127);
+        box-shadow: 2px 2px 6px 10px rgba(50, 38, 208, 0.353);
+    }
+    .turnSemiRicRed,.turnSemiRicBlue{
+        visibility:hidden;
+    }
+    .turnSemiRicRed p,.turnSemiRicBlue p{
+        font-size:20px;
+        font-family: "Russo One", sans-serif;
+        font-style: normal; 
+    }
+    .turnSemiRicBlue p{
+        color:rgb(21, 21, 113);
+    }
+    .turnSemiRicRed p{
+        color:rgb(100, 0, 0);
+    }
+    .semiLeftRed,.semiRightRed,.semiLeftBlue,.semiRightBlue{
+        border-radius: 10px;
+        height:55px;
+        width:78px;
+        font-size: 20px;
+        text-align: center;
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        margin-top: 0px;
+        margin-right: 8px;
+        background-color: rgb(177, 134, 211);
+        border:4px rgb(10, 172, 89) solid;
+        color:black;
+    }
+    .semiLeftRed:hover,.semiRightRed:hover,.semiLeftBlue:hover,.semiRightBlue:hover{
+        background-color: rgb(20, 220, 154);
+        box-shadow: 1px 1px 3px 5px rgba(54, 218, 240, 0.353);
+    }
+    .turnSemiRicBlue{
+        transform: translate(6.5px,-312px);
+    }
+    .turnSemiRicRed{
+        transform: translate(6.5px,-170px);
+    }
+}
