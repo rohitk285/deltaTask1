@@ -1058,7 +1058,7 @@ function timer_func() {
         if(sec===30)
             timer.style.color='rgb(240, 3, 3)';
         else
-            timer.style.color='black';
+           timer.style.color='black';
         if (sec < 10)
             timer.innerHTML = "00:0" + sec+"s";
         else {
