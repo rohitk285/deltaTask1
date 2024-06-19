@@ -1,7 +1,6 @@
 /* eslint-disable default-case */
 //Hacker Mode
 const gameboard = document.querySelector('.gameboard');
-let interval = 200;
 let bulletSpeed=200;
 let dirRed;
 let dirBlue;
@@ -17,8 +16,6 @@ const resume = document.querySelector('.resume');
 const winBoxText=document.querySelector('.winBox p');
 const replay=document.querySelector('.replay');
 let BulletMoving=false;
-const ricRed=document.querySelector('.ricRed');
-const ricBlue=document.querySelector('.ricBlue');
 const black_screen2=document.querySelector('.blacken2');
 const turnRicRed=document.querySelector('.ricRotateRed');
 const turnRicBlue=document.querySelector('.ricRotateBlue');
@@ -40,19 +37,7 @@ let bullet_red = null;
 let bullet_blue = null;
 let elements = [cannon_blue_pos, cannon_red_pos, titan_blue_pos, titan_red_pos, tank_blue_pos, 
     tank_red_pos,tank_blue_pos2,tank_red_pos2, sr_pos_blue, sr_pos_red, r_pos_blue, r_pos_red];
-let cell_elements=[search_cell(cannon_blue_pos.x,cannon_blue_pos.y),
-        search_cell(cannon_red_pos.x,cannon_red_pos.y),
-        search_cell(titan_blue_pos.x,titan_blue_pos.y),
-        search_cell(titan_red_pos.x,titan_red_pos.y),
-        search_cell(tank_blue_pos.x,tank_blue_pos.y),
-        search_cell(tank_red_pos.x,tank_red_pos.y),
-        search_cell(tank_blue_pos2.x,tank_blue_pos2.y),
-        search_cell(tank_red_pos2.x,tank_red_pos2.y),
-        search_cell(sr_pos_blue.x,sr_pos_blue.y),
-        search_cell(sr_pos_red.x,sr_pos_red.y),
-        search_cell(r_pos_blue.x,r_pos_blue.y),
-        search_cell(r_pos_red.x,r_pos_red.y)
-];
+
 function createCells() {  // creates cells
     for (let i = 1; i <= 8; i++) {
         for (let j = 1; j <= 8; j++) {
@@ -659,7 +644,6 @@ function handleRicBlueRotate(){
 function semiricRotateRed(){
     let semiRightRed=document.querySelector('.semiRightRed');
     let semiLeftRed=document.querySelector('.semiLeftRed');
-    let turnSemiRicRed=document.querySelector('.turnSemiRicRed');
     semiRightRed.addEventListener('click', handleSemiRightRed);
     semiLeftRed.addEventListener('click', handleSemiLeftRed);
 }
@@ -698,7 +682,6 @@ function handleSemiLeftRed(){
 function semiricRotateBlue(){
     let semiRightBlue=document.querySelector('.semiRightBlue');
     let semiLeftBlue=document.querySelector('.semiLeftBlue');
-    let turnSemiRicBlue=document.querySelector('.turnSemiRicBlue');
     semiRightBlue.addEventListener('click', handleSemiRightBlue);
     semiLeftBlue.addEventListener('click', handleSemiLeftBlue);
 }
@@ -1107,12 +1090,7 @@ function gameOver(colour){
         window.location.reload();
     })
 }
-function turnColour(){
-    if(colourTurn.innerText==='BLUE')
-        colourTurn.style.color="rgb(2, 9, 52)";
-    else
-        colourTurn.style.color="red";
-}
+
 createCells();
 const cells= Array.from(document.querySelectorAll('.cell'));
 cannonBlue(cannon_blue_pos);
@@ -1132,4 +1110,3 @@ timer_func();
 pause_game();
 resume_game();
 reset_func();
-// turnColour();

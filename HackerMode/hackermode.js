@@ -1,7 +1,6 @@
 /* eslint-disable default-case */
 //Hacker Mode
 const gameboard = document.querySelector('.gameboard');
-let interval = 200;
 let bulletSpeed=200;
 let dirRed;
 let dirBlue;
@@ -26,8 +25,6 @@ const replay=document.querySelector('.replay');
 const undoButton=document.querySelector('.undo');
 let undoCount=0;
 const redoButton=document.querySelector('.redo'); 
-const ricRed=document.querySelector('.ricRed');
-const ricBlue=document.querySelector('.ricBlue');
 const black_screen2=document.querySelector('.blacken2');
 const turnRicRed=document.querySelector('.ricRotateRed');
 const turnRicBlue=document.querySelector('.ricRotateBlue');
@@ -817,7 +814,6 @@ function handleRicBlueRotate(){
 function semiricRotateRed(){   //function for rotating red semiricochet
     let semiRightRed=document.querySelector('.semiRightRed');
     let semiLeftRed=document.querySelector('.semiLeftRed');
-    let turnSemiRicRed=document.querySelector('.turnSemiRicRed');
     semiRightRed.addEventListener('click',handleSemiRightRed);
     semiLeftRed.addEventListener('click',handleSemiLeftRed);
 }
@@ -866,7 +862,6 @@ function handleSemiLeftRed(){
 function semiricRotateBlue(){   //function for rotating blue semiricochet
     let semiRightBlue=document.querySelector('.semiRightBlue');
     let semiLeftBlue=document.querySelector('.semiLeftBlue');
-    let turnSemiRicBlue=document.querySelector('.turnSemiRicBlue');
     semiRightBlue.addEventListener('click',handleSemiRightBlue);
     semiLeftBlue.addEventListener('click',handleSemiLeftBlue);
 }
@@ -1510,12 +1505,6 @@ function storeLocalStorage(){  //to store game History in Local Storage
     const history = JSON.stringify(gameHistoryStorage);
     localStorage.setItem('gameHistory',history);
 }
-function turnColour(){
-    if(colourTurn.innerText==='BLUE')
-        colourTurn.style.color="rgb(2, 9, 52)";
-    else
-        colourTurn.style.color="red";
-}
 function cannonSound(){
     let sound=new Audio('../assets/cannon.mp3');
     sound.play();
@@ -2102,4 +2091,3 @@ resume_game();
 reset_func();
 undoMove();
 redoMove();
-// turnColour();
