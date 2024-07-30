@@ -4,6 +4,10 @@ body{
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
+    background-image: url('../assets/nightBg.jpg');
+    background-size: cover;        /* ensures the background image covers the viewport */
+    background-position: center;   /* centers the background image */
+    background-repeat: no-repeat;  /* prevents the image from repeating */
 }
 h1{
     font-size: 70px;
