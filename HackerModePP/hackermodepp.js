@@ -2,7 +2,7 @@
 //Hacker Mode++
 const gameboard = document.querySelector('.gameboard');
 let bulletSpeed=200;
-let gameOverCount=0;
+let gameOverCount=0;   // to stop gameOver from coming after replay
 let checkElements=[];
 let dirRed;
 let dirBlue;
@@ -73,13 +73,13 @@ let elements = [cannon_blue_pos, cannon_red_pos, titan_blue_pos, titan_red_pos, 
   tank_red_pos,tank_blue_pos2,tank_red_pos2, sr_pos_blue, sr_pos_red, r_pos_blue, r_pos_red];
 
 let elements_noTitanCannon=[tank_blue_pos, tank_red_pos,tank_blue_pos2,tank_red_pos2, 
-    sr_pos_blue, sr_pos_red]; //without titan & cannon
+    sr_pos_blue, sr_pos_red]; //without titan & cannon (for swapping)
 
 const elemlength=elements_noTitanCannon.length;
 let gameHistoryStorage=[]; //game history array
-let RedoStorage=[];
+let RedoStorage=[];  // array for redo function
 
-function mode(){
+function mode(){  // sets the single/double player mode of the game
     singlePlayer.addEventListener('click',()=>{
         black_screen3.style.visibility = 'hidden';
         black_screen4.style.visibility = 'visible';
@@ -111,6 +111,7 @@ function generatePos(colour,piece){  //generates random positions for each piece
             yPos=Math.floor(Math.random()*4)+1;
     }
 }while(searchCheckElements({x:xPos , y:yPos})); 
+    // positions of pieces must not repeat
     checkElements.push({x:xPos , y:yPos});
     return {x:xPos , y:yPos};
 }
@@ -131,6 +132,7 @@ function createCells() {  // creates cells
             cell.className = 'cell';
             cell.dataset.x = j;
             cell.dataset.y = i;
+            //dataset provides a convenient way to store custom data attributes in HTML elements
             gameboard.appendChild(cell);
         }
     }
@@ -160,6 +162,7 @@ function placeBulletRed(bullet) {  // places the red bullet
     }
    let next_bullet = create_element('img', 'bulletRed');
    next_bullet.src='../assets/bullet.png';
+   //rotates the bullet according to its direction
    switch(dirRed){
        case 'up':
            next_bullet.style.transform='rotate(90deg)';
@@ -187,6 +190,7 @@ function placeBulletBlue(bullet) {  // places the red bullet
     }
    let next_bullet = create_element('img', 'bulletBlue');
    next_bullet.src='../assets/bullet.png';
+   //rotates the bullet according to its direction
    switch(dirBlue){
     case 'up':
         next_bullet.style.transform='rotate(90deg)';
@@ -344,7 +348,7 @@ function tankImpact(bullet){  //checks for tank impact
     let cannonblue=document.querySelector('.cannonBlue');
     let cannonred=document.querySelector('.cannonRed');
     if((bullet.x===tank_blue_pos.x && bullet.y===tank_blue_pos.y)&&(tankBlue)&&(!(dirBlue==='left') && !(dirRed==='left'))){
-        tankAbsorb();
+        tankAbsorb();  // sound effect
         return true;
     }
     else if((bullet.x===tank_red_pos.x && bullet.y===tank_red_pos.y)&&(tankRed)&&(!(dirBlue==='left') && !(dirRed==='left'))){
@@ -359,6 +363,7 @@ function tankImpact(bullet){  //checks for tank impact
         tankAbsorb();
         return true;
     }
+    // makes sure that the bullet does not pass through the cannon through the left or right side
     else if((bullet.x===cannon_blue_pos.x && bullet.y===cannon_blue_pos.y)&&(cannonblue)&&((dirBlue==='left'||dirBlue==='right')||(dirRed==='left'||dirRed==='right')))
         return true;
     else if((bullet.x===cannon_red_pos.x && bullet.y===cannon_red_pos.y)&&(cannonred)&&((dirBlue==='left'||dirBlue==='right')||(dirRed==='left'||dirRed==='right')))
@@ -400,26 +405,26 @@ function handleSemiRicImpact(impactDirection, bulletClass, color,bullet) {
                 break;
             case 'leftdown':
                 dir = 'left';
-                ricBounce();
+                ricBounce(); // sound effect
                 break;
             case 'rightup':
             case 'leftup':
                 if(bullet.x===sr_pos_blue.x && bullet.y===sr_pos_blue.y){
                     semiRicBlueAngle=document.querySelector('.semiricBlue').style.transform;
-                    prevSemiRicBluePos={x:sr_pos_blue.x , y:sr_pos_blue.y};
-                    sr_pos_blue.x = null;
+                    prevSemiRicBluePos={x:sr_pos_blue.x , y:sr_pos_blue.y}; //used for undo&redo functions
+                    sr_pos_blue.x = null;  // setting position to null after destruction
                     sr_pos_blue.y = null;
                     semiRicRemove('.semiricBlue');  //removes blue semiric
                     semiRicBlueDestroyed=true;    }   //boolean value for whether blue semiric is destroyed
                 else{
                     semiRicRedAngle=document.querySelector('.semiricRed').style.transform;
-                    prevSemiRicRedPos={x:sr_pos_red.x , y:sr_pos_red.y};
+                    prevSemiRicRedPos={x:sr_pos_red.x , y:sr_pos_red.y}; //used for undo&redo functions
                     sr_pos_red.x = null;
                     sr_pos_red.y = null;
                     semiRicRemove('.semiricRed');   //removes red semiric
                     semiRicRedDestroyed=true;   }   //boolean value for whether blue semiric is destroyed
                 semiRicBreak();
-                removeBullet(bulletClass);
+                removeBullet(bulletClass); //removes bullet after colliding with non reflecting side of semiric
                 break;
         }
     } 
@@ -427,7 +432,7 @@ function handleSemiRicImpact(impactDirection, bulletClass, color,bullet) {
         switch (impactDirection) {
             case 'rightdown':
                 dir = 'down';
-                ricBounce();
+                ricBounce(); // sound effect
                 break;
             case 'rightup':
                 dir = 'up';
@@ -449,7 +454,7 @@ function handleSemiRicImpact(impactDirection, bulletClass, color,bullet) {
                     sr_pos_red.y = null;
                     semiRicRemove('.semiricRed');
                     semiRicRedDestroyed=true;  }
-                semiRicBreak();
+                semiRicBreak(); //sound effect
                 removeBullet(bulletClass);
                 break;
         }
@@ -569,14 +574,14 @@ function handleRicImpact(ricImpactDirection, color) {
         dirBlue = dir;
     else 
         dirRed = dir;
-    ricBounce();
+    ricBounce(); // sound effect
 }
 
 function handleTitanImpact(titanImpactColour, colour) {
     let bulletClass=colour==='Blue' ? '.bulletBlue' : '.bulletRed';
     switch (titanImpactColour) {
         case 'titanBlue':
-            removeBullet(bulletClass);
+            removeBullet(bulletClass); //removes bullet after game is over
             gameOver('Red');    //if bullet hits titan, game ends
             break;
         case 'titanRed':
@@ -620,7 +625,7 @@ function moveBulletBlue(bullet) {
             handleTitanImpact(titanImpactColour, 'Blue');
         
         if (BulletMoving) {
-            setTimeout(() => requestAnimationFrame(() => moveBulletBlue(bullet)), bulletSpeed);
+            setTimeout(() => moveBulletBlue(bullet), bulletSpeed);
         }
     } 
     else {
@@ -661,7 +666,7 @@ function moveBulletRed(bullet) {
         else if (titanImpactColour) 
             handleTitanImpact(titanImpactColour, 'Red');
         if (BulletMoving) {
-            setTimeout(() => requestAnimationFrame(() => moveBulletRed(bullet)), bulletSpeed);
+            setTimeout(() => moveBulletRed(bullet), bulletSpeed);
         }
     } 
     else {
@@ -1161,12 +1166,12 @@ function ricBlueGreenSelect(){    //moving blue ric to selected cell
                 let prevPos={x:r_pos_blue.x,y:r_pos_blue.y};
                 let swap=false;
                 let swappedPiece=null;
-                // Update cannon position
+                // Update ric position
                 let clickx = parseInt(square.dataset.x);
                 let clicky = parseInt(square.dataset.y);
                 r_pos_blue.x = clickx;
                 r_pos_blue.y = clicky;
-                // Remove previous cannon
+                // Remove previous ric
                 const previousRic = document.querySelector('.ricBlue');
                 let rotation=previousRic.style.transform;
                 if (previousRic) {

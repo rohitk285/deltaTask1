@@ -552,7 +552,7 @@ function moveBulletBlue(bullet) {
             handleTitanImpact(titanImpactColour, 'Blue');
         
         if (BulletMoving) {
-            setTimeout(() => requestAnimationFrame(() => moveBulletBlue(bullet)), bulletSpeed);
+            setTimeout(() => moveBulletBlue(bullet), bulletSpeed);
         }
     } 
     else {
@@ -593,7 +593,7 @@ function moveBulletRed(bullet) {
         else if (titanImpactColour) 
             handleTitanImpact(titanImpactColour, 'Red');
         if (BulletMoving) {
-            setTimeout(() => requestAnimationFrame(() => moveBulletRed(bullet)), bulletSpeed);
+            setTimeout(() => moveBulletRed(bullet), bulletSpeed);
         }
     } 
     else {

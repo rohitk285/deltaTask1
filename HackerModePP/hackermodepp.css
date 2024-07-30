@@ -60,7 +60,7 @@ span{
     background-color: rgb(183, 156, 204);
     border:3px rgb(3, 97, 49) solid;
     font-family: "Orbitron", sans-serif;
-    font-optical-sizing: auto;
+    font-optical-sizing: auto;  /* ensures that the text size is always optimal to the screen size */
     font-weight: 850;
     font-style: normal;
 }
@@ -290,7 +290,7 @@ span{
     border-radius: 8px;
     font-size:15.5px;
     font-family: "Orbitron", sans-serif;
-    font-optical-sizing: auto;
+    font-optical-sizing: auto;  /*ensures text size is always optimal*/
     font-weight: 800;
     font-style: normal;
     color:#000;
@@ -366,7 +366,7 @@ span{
     border-radius: 8px;
     margin-top: 8px;
     font-family: "Orbitron", sans-serif;
-    font-optical-sizing: auto;
+    font-optical-sizing: auto;  /*ensures text size is always optimal*/
     font-weight: 850;
     font-style: normal;
     border:4px rgb(9, 165, 87) solid;
