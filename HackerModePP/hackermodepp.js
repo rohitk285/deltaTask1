@@ -2543,6 +2543,8 @@ function handleGameReplay(){   //function to handle game replay
  }
 
 function singlePlayerBot(){
+    console.log((colourTurn.innerText==='RED' && !BulletMoving && 
+        !gamePaused && !game_Over && isSinglePlayerMode));
     if(colourTurn.innerText==='RED' && !BulletMoving && 
     !gamePaused && !game_Over && isSinglePlayerMode){
     let pieces;
@@ -2868,18 +2870,6 @@ function validMoves(elementPos){
     return moves;
 }
 
-const observer = new MutationObserver((mutationsList) => {
-    for (const mutation of mutationsList) {
-        if (mutation.type === 'childList' || mutation.type === 'subtree') {
-            if (colourTurn.innerText === 'RED') {
-                setTimeout(singlePlayerBot, 5000);  //5 second gap
-            }
-        }
-    }
-});
-
-// start observing the target node for configured mutations
-observer.observe(colourTurn, { childList: true, subtree: true });
 //calling required functions 
 createCells();
 const cells= Array.from(document.querySelectorAll('.cell'));
@@ -2897,7 +2887,11 @@ RicochetBlue(r_pos_blue);
 RicochetRed(r_pos_red);
 mode();
 selectCell();
-singlePlayerBot();
+
+setInterval(() => {
+    singlePlayerBot();
+},4000); // executes every 4 seconds
+
 timer_func();
 pause_game();
 resume_game();
